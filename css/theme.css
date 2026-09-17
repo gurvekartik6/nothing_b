@@ -1,0 +1,131 @@
+/* =========================================================
+   THEME SYSTEM
+   Light/Dark variables used by all four HTML pages.
+   ========================================================= */
+
+:root {
+  color-scheme: light;
+
+  --bg-primary: #f0f4ff;
+  --bg-secondary: #e8eeff;
+  --bg-card: rgba(255,255,255,.82);
+  --bg-card-hover: rgba(255,255,255,.96);
+  --bg-glass: rgba(255,255,255,.62);
+  --bg-nav: rgba(240,244,255,.86);
+  --bg-input: rgba(255,255,255,.92);
+  --bg-code: #111827;
+
+  --text-primary: #0d1117;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --text-inverse: #f8fafc;
+
+  --accent-purple: #7c3aed;
+  --accent-purple-light: #a78bfa;
+  --accent-cyan: #0891b2;
+  --accent-cyan-light: #22d3ee;
+  --accent-pink: #db2777;
+
+  --border-color: rgba(15,23,42,.08);
+  --border-hover: rgba(124,58,237,.34);
+
+  --shadow-sm: 0 2px 10px rgba(15,23,42,.06);
+  --shadow-md: 0 12px 35px rgba(15,23,42,.10);
+  --shadow-lg: 0 24px 70px rgba(15,23,42,.14);
+  --shadow-accent: 0 10px 35px rgba(124,58,237,.24);
+  --shadow-glow: 0 0 55px rgba(124,58,237,.15);
+
+  --gradient-hero: linear-gradient(135deg,#f0f4ff 0%,#e8eeff 50%,#f5f0ff 100%);
+  --gradient-accent: linear-gradient(135deg,#7c3aed,#0891b2);
+  --gradient-card: linear-gradient(145deg,rgba(255,255,255,.94),rgba(248,250,252,.72));
+
+  --blur-glass: blur(20px);
+  --blur-heavy: blur(40px);
+
+  --transition-fast: .18s cubic-bezier(.4,0,.2,1);
+  --transition-med: .32s cubic-bezier(.4,0,.2,1);
+  --transition-slow: .65s cubic-bezier(.4,0,.2,1);
+  --transition-bounce: .55s cubic-bezier(.34,1.56,.64,1);
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg-primary: #070b14;
+  --bg-secondary: #0d1220;
+  --bg-card: rgba(15,23,42,.86);
+  --bg-card-hover: rgba(22,33,56,.96);
+  --bg-glass: rgba(15,23,42,.64);
+  --bg-nav: rgba(7,11,20,.90);
+  --bg-input: rgba(15,23,42,.82);
+  --bg-code: #080c14;
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-inverse: #0d1117;
+
+  --accent-purple: #a78bfa;
+  --accent-purple-light: #c4b5fd;
+  --accent-cyan: #22d3ee;
+  --accent-cyan-light: #67e8f9;
+  --accent-pink: #f472b6;
+
+  --border-color: rgba(255,255,255,.075);
+  --border-hover: rgba(167,139,250,.42);
+
+  --shadow-sm: 0 3px 12px rgba(0,0,0,.28);
+  --shadow-md: 0 14px 40px rgba(0,0,0,.38);
+  --shadow-lg: 0 28px 80px rgba(0,0,0,.52);
+  --shadow-accent: 0 12px 40px rgba(167,139,250,.25);
+  --shadow-glow: 0 0 65px rgba(167,139,250,.18);
+
+  --gradient-hero: linear-gradient(135deg,#070b14 0%,#0d1220 52%,#130a2e 100%);
+  --gradient-accent: linear-gradient(135deg,#a78bfa,#22d3ee);
+  --gradient-card: linear-gradient(145deg,rgba(15,23,42,.94),rgba(22,33,56,.72));
+}
+
+/* Only animate theme properties; don't put a global transition on transforms. */
+html,
+body,
+.navbar-custom,
+.blog-card,
+.stat-card,
+.fact-card,
+.contact-card,
+.testimonial-card,
+.newsletter-card,
+.toc-panel,
+.comment-form,
+.like-button,
+.social-link,
+.social-big,
+.theme-toggle,
+.search-input,
+.sort-select,
+.tag-pill,
+.btn-secondary-custom,
+.floating-input,
+.floating-textarea {
+  transition:
+    background-color var(--transition-med),
+    border-color var(--transition-med),
+    color var(--transition-fast),
+    box-shadow var(--transition-med);
+}
+
+canvas,
+img {
+  transition: none !important;
+}
+
+::selection {
+  background: var(--accent-purple);
+  color: #fff;
+}

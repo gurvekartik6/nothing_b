@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="All articles by Kartik Yadav Gurve — Android, MERN, ML, hackathons and more." />
+  <title>Blog — Kartik Yadav Gurve</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/ui-redesign.css" />
+  <style>
+    /* ── Search Bar ── */
+    .search-wrap {
+      position: relative;
+      max-width: 520px;
+    }
+    .search-input {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-full);
+      padding: 14px 48px 14px 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      outline: none;
+      transition: all var(--transition-fast);
+    }
+    .search-input:focus {
+      border-color: var(--accent-purple);
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.1);
+    }
+    .search-input::placeholder { color: var(--text-muted); }
+    .search-icon {
+      position: absolute;
+      right: 16px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    /* ── Tag Filter Pills ── */
+    .tag-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .tag-pill {
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1.5px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      letter-spacing: 0.02em;
+    }
+    .tag-pill:hover { border-color: var(--accent-purple); color: var(--accent-purple); }
+    .tag-pill.active {
+      background: var(--accent-purple);
+      border-color: var(--accent-purple);
+      color: #fff;
+    }
+    .tag-pill.all-pill.active {
+      background: var(--gradient-accent);
+      border-color: transparent;
+    }
+
+    /* ── Results count ── */
+    .results-info {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 32px;
+      margin-bottom: 8px;
+    }
+    .results-info span { color: var(--accent-purple); font-weight: 600; }
+
+    /* ── No results ── */
+    .no-results {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--text-muted);
+    }
+    .no-results .nr-emoji { font-size: 4rem; margin-bottom: 16px; }
+    .no-results h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    /* ── Blog grid ── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .blog-grid .blog-card { cursor: pointer; }
+    .blog-grid .blog-card.wide { grid-column: span 2; }
+
+    @media (max-width: 992px) {
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+      .blog-grid .blog-card.wide { grid-column: span 1; }
+    }
+    @media (max-width: 640px) {
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Sort select ── */
+    .sort-select {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-full);
+      padding: 9px 18px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      outline: none;
+      cursor: pointer;
+      transition: border-color var(--transition-fast);
+    }
+    .sort-select:focus { border-color: var(--accent-purple); }
+    .sort-select option { background: var(--bg-primary); }
+
+    /* ── Blog Card Image Styles ── */
+    .card-image-wrap {
+      overflow: hidden;
+      border-radius: 12px 12px 0 0;
+      position: relative;
+    }
+    .card-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .blog-card:hover .card-image-wrap img {
+      transform: scale(1.05);
+    }
+
+    /* ── Single Post Styles ── */
+    .single-post-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    .single-post-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .single-post-hero {
+      margin-bottom: 32px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .single-post-hero img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+    .single-post-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .single-post-meta {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+    }
+    .single-post-tags {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .single-post-tag {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(124,58,237,0.1);
+      color: var(--accent-purple);
+      border: 1px solid rgba(124,58,237,0.2);
+    }
+    .single-post-content {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-primary);
+    }
+    .single-post-content h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-top: 48px;
+      margin-bottom: 20px;
+    }
+    .single-post-content h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+    .single-post-content p {
+      margin-bottom: 20px;
+    }
+    .single-post-content blockquote {
+      border-left: 4px solid var(--accent-purple);
+      padding-left: 24px;
+      margin: 32px 0;
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+    .single-post-content pre {
+      background: var(--bg-card);
+      padding: 20px;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 24px 0;
+    }
+    .single-post-content code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+    }
+
+    /* ── Engagement Bar (Likes, Views, Comments) ── */
+    .engagement-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      margin: 30px 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .stats-group {
+      display: flex;
+      gap: 24px;
+    }
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .stat-item i {
+      font-size: 1.1rem;
+    }
+    .stat-number {
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .like-button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-color);
+      border-radius: 50px;
+      color: var(--text-primary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .like-button:hover {
+      border-color: var(--accent-purple);
+      background: rgba(124,58,237,0.1);
+    }
+    .like-button.liked {
+      background: var(--accent-purple);
+      border-color: var(--accent-purple);
+      color: white;
+    }
+    .like-button.liked i {
+      animation: pop 0.3s ease;
+    }
+    @keyframes pop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    /* ── Comments Section ── */
+    .comments-section {
+      margin-top: 60px;
+    }
+    .comments-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: var(--text-primary);
+    }
+    .comment-form {
+      background: var(--bg-card);
+      padding: 30px;
+      border-radius: 16px;
+      margin-bottom: 40px;
+      border: 1px solid var(--border-color);
+    }
+    .comment-input {
+      width: 100%;
+      background: var(--bg-primary);
+      border: 1.5px solid var(--border-color);
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text-primary);
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    .comment-input:focus {
+      border-color: var(--accent-purple);
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.1);
+    }
+    textarea.comment-input {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .comment-item {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .comment-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .comment-content {
+      flex: 1;
+    }
+    .comment-name {
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .comment-date {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .comment-body {
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .no-comments {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-muted);
+    }
+
+    /* ── Back Button Styles ── */
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 40px;
+      padding: 12px 24px;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-color);
+      border-radius: 50px;
+      color: var(--accent-purple);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .back-button i {
+      font-size: 0.9rem;
+      transition: transform 0.3s ease;
+    }
+    .back-button:hover {
+      background: var(--accent-purple);
+      border-color: var(--accent-purple);
+      color: white;
+      transform: translateX(-5px);
+    }
+    .back-button:hover i {
+      transform: translateX(-3px);
+    }
+
+    .hide-section {
+      display: none !important;
+    }
+
+    /* Toast Notification */
+    .toast-notification {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--bg-card);
+      border-left: 4px solid var(--accent-purple);
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 1000;
+      animation: slideIn 0.3s ease;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="scroll-progress"></div>
+<div id="toast-container"></div>
+<div id="quote-highlight-bar" class="quote-highlight-bar"></div>
+<button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- NAVBAR -->
+<nav class="navbar-custom">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between gap-3">
+      <a href="index.html" class="nav-brand"><span>./kartik</span></a>
+      <div class="d-none d-md-flex align-items-center gap-1">
+        <a href="index.html" class="nav-link-custom">Home</a>
+        <a href="blog-post.html" class="nav-link-custom active">Blog</a>
+        <a href="about.html" class="nav-link-custom">About</a>
+        <a href="contact.html" class="nav-link-custom">Contact</a>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-label d-none d-sm-inline">Dark</span>
+        </button>
+        <button class="d-md-none theme-toggle" data-bs-toggle="collapse" data-bs-target="#mobileNav">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <div class="collapse" id="mobileNav">
+      <div class="d-flex flex-column gap-1 pt-3 pb-2">
+        <a href="index.html" class="nav-link-custom">Home</a>
+        <a href="blog-post.html" class="nav-link-custom">Blog</a>
+        <a href="about.html" class="nav-link-custom">About</a>
+        <a href="contact.html" class="nav-link-custom">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SECTION (hidden for single post) -->
+<section id="hero-section" style="background:var(--gradient-hero);padding:120px 0 60px;border-bottom:1px solid var(--border-color);">
+  <div class="container">
+    <div class="section-tag">All Articles</div>
+    <h1 class="section-title" style="font-size:clamp(2.2rem,5vw,3.8rem);">
+      The <span style="background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Blog</span>
+    </h1>
+    <p class="section-subtitle mt-2 mb-0">
+      Deep dives into Android, MERN, ML experiments, and hackathon stories.<br>
+      <strong id="post-count-hero" style="color:var(--accent-purple);">36 articles</strong> and counting.
+    </p>
+  </div>
+</section>
+
+<!-- FILTERS SECTION (hidden for single post) -->
+<section id="filters-section" style="padding:36px 0;border-bottom:1px solid var(--border-color);background:var(--bg-secondary);">
+  <div class="container">
+    <div class="d-flex align-items-start justify-content-between flex-wrap gap-4">
+      <div class="search-wrap" style="flex:1;min-width:260px;">
+        <input type="search" id="search-input" class="search-input" placeholder="Search articles…" autocomplete="off" />
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <label for="sort-select" style="font-size:0.82rem;color:var(--text-muted);white-space:nowrap;">Sort by</label>
+        <select id="sort-select" class="sort-select">
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+          <option value="readtime-asc">Shortest read</option>
+          <option value="readtime-desc">Longest read</option>
+        </select>
+      </div>
+    </div>
+    <div class="tag-filter" id="tag-filter">
+      <button class="tag-pill all-pill active" data-tag="all">All Posts</button>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG GRID / SINGLE POST CONTAINER -->
+<section class="section-padding pt-5">
+  <div class="container">
+    <div id="listing-view">
+      <div class="results-info" id="results-info"></div>
+      <div class="blog-grid" id="blog-grid"></div>
+      <div id="no-results" class="no-results" style="display:none;">
+        <div class="nr-emoji">🔍</div>
+        <h3>No articles found</h3>
+        <p>Try a different search term or clear the tag filter.</p>
+        <button class="btn-secondary-custom mt-3" onclick="clearFilters()">
+          <i class="fa-solid fa-xmark"></i> Clear Filters
+        </button>
+      </div>
+    </div>
+    <div id="single-post-view" style="display:none;"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="margin-top:0;padding-top:24px;">
+      <p class="footer-copy">© 2026 <span>Kartik Yadav Gurve</span>. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="https://github.com/gurvekartik6" class="social-link"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/kartik-gurve-17290521b/" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/posts-data.js"></script>
+<script src="js/theme-toggle.js"></script>
+<script src="js/newsletter.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+// ========== COMPLETE BLOG SCRIPT WITH VIEWS, COMMENTS & LIKES ==========
+let currentSlug = null;
+
+// ─── STORAGE KEYS ──────────────────────────────────────────────
+const STORAGE = {
+  likes: 'blog_likes',
+  comments: 'blog_comments',
+  views: 'blog_views'
+};
+
+// ─── LOCAL STORAGE HELPERS ────────────────────────────────────
+function getStoredData(key, defaultVal) {
+  try {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : defaultVal;
+  } catch {
+    return defaultVal;
+  }
+}
+
+function setStoredData(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
+}
+
+function getPostStats(slug) {
+  const stats = getStoredData(STORAGE.views, {});
+  return stats[slug] || { views: 0, likes: 0 };
+}
+
+function incrementViews(slug) {
+  const stats = getStoredData(STORAGE.views, {});
+  if (!stats[slug]) stats[slug] = { views: 0, likes: 0 };
+  stats[slug].views = (stats[slug].views || 0) + 1;
+  setStoredData(STORAGE.views, stats);
+  return stats[slug].views;
+}
+
+function getPostLikes(slug) {
+  const stats = getStoredData(STORAGE.views, {});
+  return stats[slug]?.likes || 0;
+}
+
+function toggleLike(slug) {
+  const stats = getStoredData(STORAGE.views, {});
+  if (!stats[slug]) stats[slug] = { views: 0, likes: 0 };
+  
+  const likedPosts = getStoredData('liked_posts', {});
+  if (likedPosts[slug]) {
+    // Unlike
+    stats[slug].likes = Math.max(0, (stats[slug].likes || 0) - 1);
+    delete likedPosts[slug];
+    setStoredData('liked_posts', likedPosts);
+    setStoredData(STORAGE.views, stats);
+    return { likes: stats[slug].likes, liked: false };
+  } else {
+    // Like
+    stats[slug].likes = (stats[slug].likes || 0) + 1;
+    likedPosts[slug] = true;
+    setStoredData('liked_posts', likedPosts);
+    setStoredData(STORAGE.views, stats);
+    return { likes: stats[slug].likes, liked: true };
+  }
+}
+
+function getLikeStatus(slug) {
+  const likedPosts = getStoredData('liked_posts', {});
+  return !!likedPosts[slug];
+}
+
+function getComments(slug) {
+  const allComments = getStoredData(STORAGE.comments, {});
+  return allComments[slug] || [];
+}
+
+function addComment(slug, name, body) {
+  const allComments = getStoredData(STORAGE.comments, {});
+  if (!allComments[slug]) allComments[slug] = [];
+  allComments[slug].push({
+    id: Date.now(),
+    name: name,
+    body: body,
+    date: new Date().toISOString()
+  });
+  setStoredData(STORAGE.comments, allComments);
+  return allComments[slug];
+}
+
+// ─── TOAST ──────────────────────────────────────────────────────
+function showToastMessage(msg, type = 'success') {
+  const toast = document.createElement('div');
+  toast.className = 'toast-notification';
+  const icon = type === 'success' ? 'fa-check-circle' : 
+               type === 'error' ? 'fa-exclamation-circle' : 
+               type === 'info' ? 'fa-info-circle' : 'fa-check-circle';
+  toast.innerHTML = `<i class="fa-solid ${icon}" style="margin-right: 10px; color: var(--accent-purple);"></i>${msg}`;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 3000);
+}
+
+// ─── BLOG LISTING ──────────────────────────────────────────────
+let activeTag = 'all';
+let activeSort = 'newest';
+let searchQuery = '';
+
+function renderTagPills() {
+  const container = document.getElementById('tag-filter');
+  const tags = getAllTags();
+  tags.forEach(tag => {
+    const btn = document.createElement('button');
+    btn.className = 'tag-pill';
+    btn.dataset.tag = tag;
+    btn.textContent = tag;
+    btn.addEventListener('click', () => selectTag(tag));
+    container.appendChild(btn);
+  });
+}
+
+function selectTag(tag) {
+  activeTag = tag;
+  document.querySelectorAll('.tag-pill').forEach(p => {
+    p.classList.toggle('active', p.dataset.tag === tag);
+  });
+  renderPosts();
+}
+
+window.clearFilters = function() {
+  activeTag = 'all';
+  searchQuery = '';
+  document.getElementById('search-input').value = '';
+  document.getElementById('sort-select').value = 'newest';
+  activeSort = 'newest';
+  document.querySelectorAll('.tag-pill').forEach(p => {
+    p.classList.toggle('active', p.dataset.tag === 'all');
+  });
+  renderPosts();
+}
+
+function sortPosts(posts) {
+  switch (activeSort) {
+    case 'oldest':
+      return [...posts].sort((a, b) => new Date(a.date) - new Date(b.date));
+    case 'readtime-asc':
+      return [...posts].sort((a, b) => a.readTime - b.readTime);
+    case 'readtime-desc':
+      return [...posts].sort((a, b) => b.readTime - a.readTime);
+    default:
+      return [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
+  }
+}
+
+function buildCard(post, index) {
+  const isWide = (index === 0);
+  const card = document.createElement('div');
+  card.className = `blog-card${isWide ? ' wide' : ''}`;
+  card.setAttribute('role', 'article');
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('aria-label', post.title);
+
+  const tagBadges = post.tags.slice(0, 3).map((t, i) => {
+    const colors = [
+      'background:rgba(124,58,237,0.1);color:var(--accent-purple);border-color:rgba(124,58,237,0.2)',
+      'background:rgba(8,145,178,0.1);color:var(--accent-cyan);border-color:rgba(8,145,178,0.2)',
+      'background:rgba(219,39,119,0.1);color:var(--accent-pink);border-color:rgba(219,39,119,0.2)',
+    ];
+    return `<span class="card-tag" style="${colors[i % 3]}">${t}</span>`;
+  }).join('');
+
+  const fallbackImage = 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=400&fit=crop';
+  const postImage = post.image || fallbackImage;
+
+  card.innerHTML = `
+    <div class="card-image-wrap" style="height:${isWide ? '200px' : '160px'};">
+      <img src="${postImage}" 
+           alt="${post.title}"
+           style="width:100%; height:100%; object-fit:cover;"
+           onerror="this.src='${fallbackImage}'">
+    </div>
+    <div class="card-content">
+      <div class="card-tags">${tagBadges}</div>
+      <h3 class="card-title">${post.title}</h3>
+      <p class="card-excerpt">${post.excerpt}</p>
+      <div class="card-meta">
+        <div class="card-author">
+          <div class="author-avatar">KY</div>
+          <div>
+            <div class="author-name">${post.author}</div>
+            <div class="author-date">${post.date}</div>
+          </div>
+        </div>
+        <div class="card-read-time"><i class="fa-regular fa-clock"></i> ${post.readTime} min</div>
+      </div>
+    </div>
+  `;
+
+  const go = () => { window.location.href = `blog-post.html?slug=${post.slug}`; };
+  card.addEventListener('click', go);
+  card.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
+
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const dx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+    const dy = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+    card.style.transform = `translateY(-8px) rotateX(${-dy * 6}deg) rotateY(${dx * 6}deg)`;
+  });
+  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+
+  return card;
+}
+
+function renderPosts() {
+  const grid = document.getElementById('blog-grid');
+  const noResults = document.getElementById('no-results');
+  const info = document.getElementById('results-info');
+
+  let posts = getAllPosts();
+  if (activeTag !== 'all') posts = posts.filter(p => p.tags.includes(activeTag));
+  if (searchQuery) posts = searchPosts(searchQuery).filter(p => activeTag === 'all' || p.tags.includes(activeTag));
+  posts = sortPosts(posts);
+
+  grid.innerHTML = '';
+
+  if (!posts.length) {
+    noResults.style.display = 'block';
+    info.innerHTML = '';
+    return;
+  }
+
+  noResults.style.display = 'none';
+  const label = activeTag !== 'all' ? `in <span>${activeTag}</span>` : searchQuery ? `matching "<span>${searchQuery}</span>"` : '';
+  info.innerHTML = `Showing <span>${posts.length}</span> article${posts.length !== 1 ? 's' : ''} ${label}`;
+
+  posts.forEach((post, i) => {
+    const card = buildCard(post, i);
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(24px)';
+    grid.appendChild(card);
+    setTimeout(() => {
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s cubic-bezier(0.4,0,0.2,1)';
+      card.style.opacity = '1';
+      card.style.transform = '';
+    }, i * 60);
+  });
+}
+
+// ─── SINGLE POST VIEW ──────────────────────────────────────────
+function showSinglePost(slug) {
+  const post = getPostBySlug(slug);
+  currentSlug = slug;
+  
+  if (!post) {
+    document.getElementById('single-post-view').innerHTML = `
+      <div style="text-align:center;padding:80px;">
+        <h2>Post not found</h2>
+        <button class="btn-primary-custom" onclick="showListing()">← Back to Blog</button>
+      </div>
+    `;
+    document.getElementById('single-post-view').style.display = 'block';
+    document.getElementById('listing-view').style.display = 'none';
+    document.getElementById('hero-section').classList.add('hide-section');
+    document.getElementById('filters-section').classList.add('hide-section');
+    return;
+  }
+  
+  // Increment view count
+  incrementViews(slug);
+  const stats = getPostStats(slug);
+  const liked = getLikeStatus(slug);
+  const comments = getComments(slug);
+  
+  document.title = `${post.title} — Kartik Yadav Gurve`;
+  
+  const tagHTML = post.tags.map(tag => `<span class="single-post-tag">${tag}</span>`).join('');
+  
+  const fallbackImage = 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=400&fit=crop';
+  const postImage = post.image || fallbackImage;
+  
+  document.getElementById('single-post-view').innerHTML = `
+    <div class="single-post-container">
+      <button class="back-button" onclick="showListing()">
+        <i class="fa-solid fa-arrow-left"></i> Back to all articles
+      </button>
+      <div class="single-post-header">
+        <div class="single-post-hero">
+          <img src="${postImage}" 
+               alt="${post.title}"
+               onerror="this.src='${fallbackImage}'">
+        </div>
+        <h1 class="single-post-title">${post.title}</h1>
+        <div class="single-post-meta">
+          <span><i class="fa-regular fa-user"></i> ${post.author}</span>
+          <span><i class="fa-regular fa-calendar"></i> ${post.date}</span>
+          <span><i class="fa-regular fa-clock"></i> ${post.readTime} min read</span>
+        </div>
+        <div class="single-post-tags">${tagHTML}</div>
+      </div>
+      
+      <!-- Engagement Bar -->
+      <div class="engagement-bar">
+        <div class="stats-group">
+          <div class="stat-item">
+            <i class="fa-regular fa-eye"></i>
+            <span class="stat-number" id="viewCount">${stats.views}</span>
+            <span>views</span>
+          </div>
+          <div class="stat-item">
+            <i class="fa-regular fa-heart"></i>
+            <span class="stat-number" id="likeCount">${stats.likes}</span>
+            <span>likes</span>
+          </div>
+          <div class="stat-item">
+            <i class="fa-regular fa-comment"></i>
+            <span class="stat-number" id="commentCount">${comments.length}</span>
+            <span>comments</span>
+          </div>
+        </div>
+        <button class="like-button ${liked ? 'liked' : ''}" id="likeButton" onclick="handleLike()">
+          <i class="fa-${liked ? 'solid' : 'regular'} fa-heart"></i>
+          <span>${liked ? 'Liked' : 'Like'}</span>
+        </button>
+      </div>
+      
+      <!-- Post Content -->
+      <div class="single-post-content">
+        ${post.content}
+      </div>
+      
+      <!-- Comments Section -->
+      <div class="comments-section">
+        <h3 class="comments-title">Discussion <span id="commentCountTitle">(${comments.length})</span></h3>
+        
+        <!-- Comment Form -->
+        <div class="comment-form">
+          <div class="row g-3">
+            <div class="col-12">
+              <input type="text" id="commentName" class="comment-input" placeholder="Your Name" required>
+            </div>
+            <div class="col-12">
+              <textarea id="commentBody" class="comment-input" placeholder="Share your thoughts..." rows="4" required></textarea>
+            </div>
+            <div class="col-12">
+              <button class="btn-primary-custom" onclick="submitComment()">
+                <i class="fa-regular fa-paper-plane"></i> Post Comment
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Comments List -->
+        <div id="commentsList"></div>
+      </div>
+    </div>
+  `;
+  
+  // Display comments
+  displayComments(slug);
+  
+  document.getElementById('single-post-view').style.display = 'block';
+  document.getElementById('listing-view').style.display = 'none';
+  document.getElementById('hero-section').classList.add('hide-section');
+  document.getElementById('filters-section').classList.add('hide-section');
+  window.scrollTo(0, 0);
+}
+
+// ─── COMMENTS ──────────────────────────────────────────────────
+function displayComments(slug) {
+  const comments = getComments(slug);
+  const commentsList = document.getElementById('commentsList');
+  const commentCount = document.getElementById('commentCount');
+  const commentCountTitle = document.getElementById('commentCountTitle');
+  
+  if (commentCount) commentCount.textContent = comments.length;
+  if (commentCountTitle) commentCountTitle.textContent = `(${comments.length})`;
+  
+  if (comments.length === 0) {
+    commentsList.innerHTML = `
+      <div class="no-comments">
+        <i class="fa-regular fa-comment-dots" style="font-size: 2rem; margin-bottom: 10px;"></i>
+        <p>No comments yet. Be the first to share your thoughts!</p>
+      </div>
+    `;
+    return;
+  }
+  
+  commentsList.innerHTML = comments.map(comment => `
+    <div class="comment-item">
+      <div class="comment-avatar">
+        ${comment.name.charAt(0).toUpperCase()}
+      </div>
+      <div class="comment-content">
+        <div class="comment-name">${escapeHtml(comment.name)}</div>
+        <div class="comment-date">${new Date(comment.date).toLocaleDateString('en-US', { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        })}</div>
+        <div class="comment-body">${escapeHtml(comment.body)}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function submitComment() {
+  const name = document.getElementById('commentName').value.trim();
+  const body = document.getElementById('commentBody').value.trim();
+  
+  if (!name || !body) {
+    showToastMessage('Please fill in all fields', 'error');
+    return;
+  }
+  
+  const comments = addComment(currentSlug, name, body);
+  displayComments(currentSlug);
+  showToastMessage('Comment posted successfully!', 'success');
+  
+  document.getElementById('commentName').value = '';
+  document.getElementById('commentBody').value = '';
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// ─── LIKES ─────────────────────────────────────────────────────
+function handleLike() {
+  const result = toggleLike(currentSlug);
+  const likeCount = document.getElementById('likeCount');
+  const likeButton = document.getElementById('likeButton');
+  
+  likeCount.textContent = result.likes;
+  
+  if (result.liked) {
+    likeButton.classList.add('liked');
+    likeButton.innerHTML = '<i class="fa-solid fa-heart"></i> <span>Liked</span>';
+    showToastMessage('You liked this post! ❤️', 'success');
+  } else {
+    likeButton.classList.remove('liked');
+    likeButton.innerHTML = '<i class="fa-regular fa-heart"></i> <span>Like</span>';
+    showToastMessage('You unliked this post', 'info');
+  }
+}
+
+// ─── NAVIGATION ────────────────────────────────────────────────
+function showListing() {
+  document.getElementById('single-post-view').style.display = 'none';
+  document.getElementById('listing-view').style.display = 'block';
+  document.getElementById('hero-section').classList.remove('hide-section');
+  document.getElementById('filters-section').classList.remove('hide-section');
+  document.title = 'Blog — Kartik Yadav Gurve';
+  
+  const url = new URL(window.location);
+  url.searchParams.delete('slug');
+  window.history.pushState({}, '', url);
+  
+  renderPosts();
+}
+
+// ─── INITIALIZE ────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', async () => {
+  await hydratePostsFromAPI();
+  const params = new URLSearchParams(window.location.search);
+  const slugParam = params.get('slug');
+  
+  if (slugParam) {
+    showSinglePost(slugParam);
+  } else {
+    const countEl = document.getElementById('post-count-hero');
+    if (countEl) countEl.textContent = `${POSTS_DB.length} articles`;
+    
+    renderTagPills();
+    renderPosts();
+    
+    let searchTimer;
+    document.getElementById('search-input').addEventListener('input', (e) => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        searchQuery = e.target.value.trim();
+        renderPosts();
+      }, 250);
+    });
+    
+    document.getElementById('sort-select').addEventListener('change', (e) => {
+      activeSort = e.target.value;
+      renderPosts();
+    });
+    
+    document.querySelector('.all-pill').addEventListener('click', () => selectTag('all'));
+    
+    const tagParam = params.get('tag');
+    if (tagParam) {
+      setTimeout(() => selectTag(tagParam), 50);
+    }
+  }
+});
+
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

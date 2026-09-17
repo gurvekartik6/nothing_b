@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Kartik Yadav Gurve | Developer Blog</title>
+  <link>https://kartik-blog.vercel.app/</link>
+  <description>Spring Boot, Java, Hibernate, JPA, Docker, Kubernetes, React, Git, REST API, JWT, Security, System Design, and book takeaways</description>
+  <language>en</language>
+  <lastBuildDate>Tue, 28 Jul 2026 20:00:00 GMT</lastBuildDate>
+  <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- POST 42: July 28, 2026 - REACT SERIES POST 6 -->
+  <item>
+    <title>Components and Props: Building Reusable UI Pieces</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=react-components-props</link>
+    <description>Learn how to break your UI into reusable components and pass data between them using props. Components are LEGO bricks for your app.</description>
+    <pubDate>Tue, 28 Jul 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=react-components-props</guid>
+    <category>React</category>
+    <category>JavaScript</category>
+    <category>Components</category>
+    <category>Props</category>
+    <category>Frontend</category>
+    <category>Beginners</category>
+  </item>
+
+  <!-- POST 41: July 26, 2026 - REACT SERIES POST 5 -->
+  <item>
+    <title>Understanding Your First React App: What's Inside?</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=react-understanding-first-app</link>
+    <description>Open your React app and feel lost? Let's break down every file and folder. No confusion, just clear explanations.</description>
+    <pubDate>Sun, 26 Jul 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=react-understanding-first-app</guid>
+    <category>React</category>
+    <category>JavaScript</category>
+    <category>Frontend</category>
+    <category>Beginners</category>
+    <category>Setup</category>
+  </item>
+
+  <!-- POST 40: July 25, 2026 - REACT SERIES POST 4 -->
+  <item>
+    <title>React with Vite: Faster Setup, Better Performance</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=react-vite-setup-guide</link>
+    <description>Learn how to set up React using Vite — the modern, faster alternative to Create React App. Simple steps with common issues fixed.</description>
+    <pubDate>Sat, 25 Jul 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=react-vite-setup-guide</guid>
+    <category>React</category>
+    <category>Vite</category>
+    <category>JavaScript</category>
+    <category>Frontend</category>
+    <category>Beginners</category>
+    <category>Setup</category>
+  </item>
+
+  <!-- POST 39: July 24, 2026 - REACT SERIES POST 3 -->
+  <item>
+    <title>JSX Explained: HTML in JavaScript Made Simple</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=react-jsx-explained</link>
+    <description>Learn what JSX is, why React uses it, and how to write your first JSX code. No magic, just JavaScript with HTML-like syntax.</description>
+    <pubDate>Fri, 24 Jul 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=react-jsx-explained</guid>
+    <category>React</category>
+    <category>JavaScript</category>
+    <category>JSX</category>
+    <category>Frontend</category>
+    <category>Beginners</category>
+  </item>
+
+  <!-- POST 38: July 21, 2026 - REACT SERIES POST 2 -->
+  <item>
+    <title>Setting Up Your First React Project: Create React App Explained</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=react-setup-first-project-create-react-app</link>
+    <description>Learn how to create your first React project using Create React App. No complex setup, just get started with Node.js, npm, and your first component.</description>
+    <pubDate>Tue, 21 Jul 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=react-setup-first-project-create-react-app</guid>
+    <category>React</category>
+    <category>JavaScript</category>
+    <category>Frontend</category>
+    <category>Beginners</category>
+    <category>Setup</category>
+  </item>
+
+  <!-- POST 37: July 17, 2026 - REACT SERIES POST 1 -->
+  <item>
+    <title>React Introduction: What is React and Why Should You Learn It?</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=react-introduction-what-is-react-and-why-use-it</link>
+    <description>Starting the React series from zero. Learn what React is, why it's so popular, how it works, and who uses it. Component-based, Virtual DOM, and huge ecosystem.</description>
+    <pubDate>Fri, 17 Jul 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=react-introduction-what-is-react-and-why-use-it</guid>
+    <category>React</category>
+    <category>JavaScript</category>
+    <category>Frontend</category>
+    <category>Beginners</category>
+  </item>
+
+  <!-- POST 36: June 25, 2026 -->
+  <item>
+    <title>API Gateway Pattern: One Door to All Your Services</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=api-gateway-pattern-system-design</link>
+    <description>A single entry point for all your microservices. Authentication, routing, rate limiting, and more.</description>
+    <pubDate>Thu, 25 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=api-gateway-pattern-system-design</guid>
+    <category>API Gateway</category>
+    <category>Microservices</category>
+    <category>System Design</category>
+  </item>
+
+  <!-- POST 35: June 24, 2026 -->
+  <item>
+    <title>Database Sharding: When One Database Isn't Enough</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=database-sharding-explained</link>
+    <description>Split your database across multiple servers. Scale beyond limits with sharding strategies.</description>
+    <pubDate>Wed, 24 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=database-sharding-explained</guid>
+    <category>Database</category>
+    <category>Sharding</category>
+    <category>Scalability</category>
+    <category>System Design</category>
+  </item>
+
+  <!-- POST 34: June 23, 2026 -->
+  <item>
+    <title>Caching Strategies: Making Your App Blazing Fast</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=caching-strategies-system-design</link>
+    <description>Cache everything? Not quite. Learn when and what to cache. LRU, TTL, FIFO, and more.</description>
+    <pubDate>Tue, 23 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=caching-strategies-system-design</guid>
+    <category>Caching</category>
+    <category>System Design</category>
+    <category>Performance</category>
+  </item>
+
+  <!-- POST 33: June 22, 2026 -->
+  <item>
+    <title>System Design 101: Load Balancing Explained</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=system-design-basics-load-balancing</link>
+    <description>What happens when millions of users hit your app? Load balancing saves the day. Round Robin, Least Connections, IP Hash, and more.</description>
+    <pubDate>Mon, 22 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=system-design-basics-load-balancing</guid>
+    <category>System Design</category>
+    <category>Load Balancing</category>
+    <category>Scalability</category>
+  </item>
+
+  <!-- POST 32: June 21, 2026 -->
+  <item>
+    <title>Microservices Architecture: Breaking the Monolith</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=microservices-architecture-basics</link>
+    <description>Understanding microservices: what they are, why they exist, and when to use them. Start with a monolith.</description>
+    <pubDate>Sun, 21 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=microservices-architecture-basics</guid>
+    <category>Microservices</category>
+    <category>Architecture</category>
+    <category>System Design</category>
+  </item>
+
+  <!-- POST 31: June 20, 2026 -->
+  <item>
+    <title>Spring Boot + Kubernetes: Deploy at Scale</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-kubernetes-deployment-guide</link>
+    <description>Take your Docker container to Kubernetes. Scale, manage, and deploy like a pro. No downtime.</description>
+    <pubDate>Sat, 20 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-kubernetes-deployment-guide</guid>
+    <category>Spring Boot</category>
+    <category>Kubernetes</category>
+    <category>DevOps</category>
+    <category>Deployment</category>
+  </item>
+
+  <!-- POST 30: June 19, 2026 -->
+  <item>
+    <title>Spring Boot + Docker: Containerize Your App</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-docker-guide</link>
+    <description>Package your Spring Boot app as a Docker container. Deploy anywhere with Docker.</description>
+    <pubDate>Fri, 19 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-docker-guide</guid>
+    <category>Spring Boot</category>
+    <category>Docker</category>
+    <category>DevOps</category>
+    <category>Deployment</category>
+  </item>
+
+  <!-- POST 29: June 18, 2026 -->
+  <item>
+    <title>Spring Boot Testing: Unit Tests &amp; Integration Tests</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-testing-guide</link>
+    <description>Test your APIs properly. No more deploying to check if code works. JUnit + Mockito.</description>
+    <pubDate>Thu, 18 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-testing-guide</guid>
+    <category>Spring Boot</category>
+    <category>Testing</category>
+    <category>JUnit</category>
+    <category>Mockito</category>
+  </item>
+
+  <!-- POST 28: June 17, 2026 -->
+  <item>
+    <title>Spring Boot + React: Full Stack Integration</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-react-integration-guide</link>
+    <description>Connect React frontend with Spring Boot backend. CORS, API calls, and deployment options.</description>
+    <pubDate>Wed, 17 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-react-integration-guide</guid>
+    <category>Spring Boot</category>
+    <category>React</category>
+    <category>Full Stack</category>
+    <category>CORS</category>
+  </item>
+
+  <!-- POST 27: June 16, 2026 -->
+  <item>
+    <title>JWT Authentication in Spring Boot: Stateless Security</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-jwt-authentication-guide</link>
+    <description>Replace Basic Auth with JWT tokens. Modern, stateless, and scalable authentication.</description>
+    <pubDate>Tue, 16 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-jwt-authentication-guide</guid>
+    <category>Spring Boot</category>
+    <category>JWT</category>
+    <category>Security</category>
+    <category>Authentication</category>
+  </item>
+
+  <!-- POST 26: June 15, 2026 -->
+  <item>
+    <title>Spring Boot Security: Basic Auth in 10 Minutes</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-security-basics-guide</link>
+    <description>Add username/password protection to your APIs. No more open endpoints.</description>
+    <pubDate>Mon, 15 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-security-basics-guide</guid>
+    <category>Spring Boot</category>
+    <category>Security</category>
+    <category>Authentication</category>
+    <category>Java</category>
+  </item>
+
+  <!-- POST 25: June 14, 2026 -->
+  <item>
+    <title>Spring Boot Profiles: Dev, Test, Prod Made Easy</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-profiles-guide</link>
+    <description>Different settings for different environments. No more changing configs manually.</description>
+    <pubDate>Sun, 14 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-profiles-guide</guid>
+    <category>Spring Boot</category>
+    <category>Profiles</category>
+    <category>Configuration</category>
+  </item>
+
+  <!-- POST 24: June 13, 2026 -->
+  <item>
+    <title>Spring Boot with Database: JPA Made Simple</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-jpa-database-guide</link>
+    <description>Connect your Spring Boot app to a real database. No complicated setup.</description>
+    <pubDate>Sat, 13 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-jpa-database-guide</guid>
+    <category>Spring Boot</category>
+    <category>JPA</category>
+    <category>Database</category>
+    <category>Hibernate</category>
+  </item>
+
+  <!-- POST 23: June 12, 2026 -->
+  <item>
+    <title>Exception Handling in Spring Boot: Stop Using Try-Catch Everywhere</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-exception-handling-guide</link>
+    <description>One place to handle all errors. Clean and simple. No more try-catch mess.</description>
+    <pubDate>Fri, 12 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-exception-handling-guide</guid>
+    <category>Spring Boot</category>
+    <category>Exception Handling</category>
+    <category>Java</category>
+  </item>
+
+  <!-- POST 22: June 11, 2026 -->
+  <item>
+    <title>Building a Complete REST API (CRUD) with Spring Boot</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-rest-api-crud-tutorial</link>
+    <description>Create, Read, Update, Delete — build a complete User Management API step by step.</description>
+    <pubDate>Thu, 11 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-rest-api-crud-tutorial</guid>
+    <category>Spring Boot</category>
+    <category>REST API</category>
+    <category>CRUD</category>
+    <category>Java</category>
+  </item>
+
+  <!-- POST 21: June 10, 2026 -->
+  <item>
+    <title>Spring Boot Annotations: 7 Annotations Every Developer Should Know</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-annotations-every-developer-should-know</link>
+    <description>@RestController, @Autowired, @Service, @Repository, @PathVariable, @RequestBody, @GetMapping explained with examples.</description>
+    <pubDate>Wed, 10 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=spring-boot-annotations-every-developer-should-know</guid>
+    <category>Spring Boot</category>
+    <category>Java</category>
+    <category>Annotations</category>
+  </item>
+
+  <!-- POST 20: June 9, 2026 -->
+  <item>
+    <title>@SpringBootApplication: The Most Important Annotation Explained</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=springbootapplication-annotation-explained</link>
+    <description>What does @SpringBootApplication actually do? It's not magic — it's 3 annotations in one.</description>
+    <pubDate>Tue, 09 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=springbootapplication-annotation-explained</guid>
+    <category>Spring Boot</category>
+    <category>Java</category>
+    <category>Annotations</category>
+    <category>Beginner</category>
+  </item>
+
+  <!-- POST 19: June 8, 2026 -->
+  <item>
+    <title>Create Your First Spring Boot Project: Step by Step</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=create-first-spring-boot-project-step-by-step</link>
+    <description>From zero to a running Spring Boot app in 5 minutes. No prior Spring experience needed.</description>
+    <pubDate>Mon, 08 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=create-first-spring-boot-project-step-by-step</guid>
+    <category>Spring Boot</category>
+    <category>Java</category>
+    <category>Beginner</category>
+    <category>Tutorial</category>
+  </item>
+
+  <!-- POST 18: June 7, 2026 -->
+  <item>
+    <title>Spring vs Spring Boot: What's the Difference?</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=spring-vs-spring-boot-what-is-difference</link>
+    <description>Spring is the framework. Spring Boot is the shortcut. Learn the difference in 2 minutes.</description>
+    <pubDate>Sun, 07 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=spring-vs-spring-boot-what-is-difference</guid>
+    <category>Spring</category>
+    <category>Spring Boot</category>
+    <category>Java</category>
+    <category>Framework</category>
+  </item>
+
+  <!-- POST 17: June 6, 2026 -->
+  <item>
+    <title>Top 5 VS Code Extensions That Make Coding 10x Easier</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=top-5-vs-code-extensions-for-developers</link>
+    <description>Prettier, GitLens, Thunder Client, Live Server, Error Lens — my favorite extensions. No bloat.</description>
+    <pubDate>Sat, 06 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=top-5-vs-code-extensions-for-developers</guid>
+    <category>VS Code</category>
+    <category>Tools</category>
+    <category>Productivity</category>
+  </item>
+
+  <!-- POST 16: June 5, 2026 -->
+  <item>
+    <title>REST API vs GraphQL: Which One Should You Learn First?</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=rest-api-vs-graphql-simple-comparison</link>
+    <description>Simple comparison with real examples — no complex theory, just practical advice.</description>
+    <pubDate>Fri, 05 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=rest-api-vs-graphql-simple-comparison</guid>
+    <category>API</category>
+    <category>GraphQL</category>
+    <category>REST</category>
+    <category>Backend</category>
+  </item>
+
+  <!-- POST 15: June 4, 2026 -->
+  <item>
+    <title>Docker Basics: 5 Commands That Will Change How You Develop</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=docker-basics-every-developer-needs</link>
+    <description>Stop saying 'it works on my machine' — containerize your apps with essential Docker commands.</description>
+    <pubDate>Thu, 04 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=docker-basics-every-developer-needs</guid>
+    <category>Docker</category>
+    <category>DevOps</category>
+    <category>Containers</category>
+  </item>
+
+  <!-- POST 14: June 3, 2026 -->
+  <item>
+    <title>Git Basics: 5 Commands Every Developer Must Know</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=git-basics-every-developer-should-know</link>
+    <description>No more git panic. Just clone, commit, push, pull, and branch — explained simply.</description>
+    <pubDate>Wed, 03 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=git-basics-every-developer-should-know</guid>
+    <category>Git</category>
+    <category>GitHub</category>
+    <category>Version Control</category>
+    <category>Beginner</category>
+  </item>
+
+  <!-- POST 13: June 2, 2026 -->
+  <item>
+    <title>3 More Hibernate Concepts: Second-Level Cache, Batch Fetching &amp; JPA vs Hibernate</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=hibernate-second-level-cache-batch-fetching-jpa-vs-hibernate</link>
+    <description>Cache across sessions, fetch collections in batches, and understand JPA vs Hibernate.</description>
+    <pubDate>Tue, 02 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=hibernate-second-level-cache-batch-fetching-jpa-vs-hibernate</guid>
+    <category>Java</category>
+    <category>Hibernate</category>
+    <category>JPA</category>
+    <category>Caching</category>
+    <category>Performance</category>
+  </item>
+
+  <!-- POST 12: June 1, 2026 -->
+  <item>
+    <title>2 Hibernate Concepts That Save Your Database: N+1 Problem &amp; First-Level Cache</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=hibernate-n-plus-1-problem-and-first-level-cache</link>
+    <description>Why 10 users become 11 queries (and how to fix it). Plus the cache you already have.</description>
+    <pubDate>Mon, 01 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=hibernate-n-plus-1-problem-and-first-level-cache</guid>
+    <category>Java</category>
+    <category>Hibernate</category>
+    <category>Performance</category>
+    <category>Caching</category>
+  </item>
+
+  <!-- POST 11: May 31, 2026 -->
+  <item>
+    <title>Hibernate Session Problems: Transactions, Lazy Loading, and Session Management</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=hibernate-session-problems-transactions-lazy-loading</link>
+    <description>3 biggest problems developers face with Hibernate sessions and how to fix them.</description>
+    <pubDate>Sat, 31 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=hibernate-session-problems-transactions-lazy-loading</guid>
+    <category>Java</category>
+    <category>Hibernate</category>
+    <category>Session</category>
+    <category>Transactions</category>
+  </item>
+
+  <!-- POST 10: May 30, 2026 -->
+  <item>
+    <title>Hibernate Deep Dive: SessionFactory, Session, and Their Lifecycle</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=hibernate-session-factory-session-lifecycle-deep-dive</link>
+    <description>Understanding Hibernate's heart: how SessionFactory is born, how Sessions live and die.</description>
+    <pubDate>Sat, 30 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=hibernate-session-factory-session-lifecycle-deep-dive</guid>
+    <category>Java</category>
+    <category>Hibernate</category>
+    <category>Database</category>
+    <category>Performance</category>
+  </item>
+
+  <!-- POST 9: May 29, 2026 -->
+  <item>
+    <title>I Finished Can't Hurt Me. My Brain Feels Heavier (In a Good Way)</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=cant-hurt-me-book-takeaways-david-goggins</link>
+    <description>David Goggins won't hug you. He'll call you soft. Here's what changed after finishing his book.</description>
+    <pubDate>Fri, 29 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=cant-hurt-me-book-takeaways-david-goggins</guid>
+    <category>Books</category>
+    <category>Mindset</category>
+    <category>Motivation</category>
+    <category>Self-Improvement</category>
+  </item>
+
+  <!-- POST 8: May 28, 2026 -->
+  <item>
+    <title>Hibernate ORM: The Big 4 Methods (Save, Find, Update, Delete)</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=hibernate-orm-crud-methods-merge-persist-remove</link>
+    <description>A simple guide to persist, merge, find, and remove – the 4 superhero methods of Hibernate.</description>
+    <pubDate>Thu, 28 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=hibernate-orm-crud-methods-merge-persist-remove</guid>
+    <category>Java</category>
+    <category>Hibernate</category>
+    <category>Database</category>
+    <category>CRUD</category>
+  </item>
+
+  <!-- POST 7: May 27, 2026 -->
+  <item>
+    <title>Hibernate ORM: Mapping Relationships &amp; Annotations (Theory)</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=hibernate-orm-mapping-relationships-annotations</link>
+    <description>A simple guide to @OneToOne, @OneToMany, @ManyToOne, and @ManyToMany in Hibernate.</description>
+    <pubDate>Wed, 27 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=hibernate-orm-mapping-relationships-annotations</guid>
+    <category>Java</category>
+    <category>Hibernate</category>
+    <category>Database</category>
+    <category>Theory</category>
+  </item>
+
+  <!-- POST 6: May 26, 2026 -->
+  <item>
+    <title>Hibernate ORM: What It Is and Why You Need It</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=hibernate-orm-simple-guide</link>
+    <description>Simple explanation of Hibernate — the Java ORM that saves you from writing SQL manually.</description>
+    <pubDate>Tue, 26 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=hibernate-orm-simple-guide</guid>
+    <category>Java</category>
+    <category>Hibernate</category>
+    <category>Database</category>
+  </item>
+
+  <!-- POST 5: May 25, 2026 -->
+  <item>
+    <title>How to Connect Java Application to PostgreSQL</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=connect-java-to-postgresql</link>
+    <description>Step-by-step guide to connect Java with PostgreSQL database using JDBC driver.</description>
+    <pubDate>Mon, 25 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=connect-java-to-postgresql</guid>
+    <category>Java</category>
+    <category>PostgreSQL</category>
+    <category>Database</category>
+    <category>JDBC</category>
+  </item>
+
+  <!-- POST 4: May 24, 2026 -->
+  <item>
+    <title>The Tech Skills I Have Learned</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=tech-skills-i-have-learned</link>
+    <description>The tech skills I have learned over the years — Android, Kotlin, Firebase, ML, Power BI, Docker and more.</description>
+    <pubDate>Sun, 24 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=tech-skills-i-have-learned</guid>
+    <category>Skills</category>
+    <category>Learning</category>
+  </item>
+
+  <!-- POST 3: May 23, 2026 -->
+  <item>
+    <title>How I Work as an Instructor at Sai Ambrosia After 10th</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=how-i-work-as-instructor-at-sai-ambrosia</link>
+    <description>After 10th how I work as instructor at Sai Ambrosia Education — teaching Power BI and more.</description>
+    <pubDate>Sat, 23 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=how-i-work-as-instructor-at-sai-ambrosia</guid>
+    <category>Teaching</category>
+    <category>Power BI</category>
+  </item>
+
+  <!-- POST 2: May 22, 2026 -->
+  <item>
+    <title>The Idea About the Blogging Website</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=the-idea-about-the-blogging-website</link>
+    <description>The idea about the blogging website and why I built it this way — no backend, just a central database.</description>
+    <pubDate>Fri, 22 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=the-idea-about-the-blogging-website</guid>
+    <category>Blogging</category>
+    <category>Web Development</category>
+  </item>
+
+  <!-- POST 1: May 21, 2026 -->
+  <item>
+    <title>Coding Since 2018</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=my-love-and-passion-about-coding-since-2018</link>
+    <description>RPG Maker, GBA games, and never finishing anything. But that was the start of my coding journey.</description>
+    <pubDate>Thu, 21 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=my-love-and-passion-about-coding-since-2018</guid>
+    <category>Personal</category>
+    <category>Coding</category>
+  </item>
+
+</channel>
+</rss>

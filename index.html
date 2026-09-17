@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kartik Yadav Gurve — Developer blog on Android, MERN, AI/ML, and hackathon journeys." />
+  <title>Kartik Yadav Gurve | Developer Blog</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/ui-redesign.css" />
+  <script>
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+  </script>
+</head>
+<body>
+
+<!-- ─── CUSTOM CURSOR ─── -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- ─── SCROLL PROGRESS ─── -->
+<div id="scroll-progress"></div>
+
+<!-- ─── LOADING SCREEN ─── -->
+<div id="loading-screen">
+  <canvas id="loading-canvas"></canvas>
+  <p class="loading-text">Kartik Yadav Gurve</p>
+</div>
+
+<!-- ─── TOAST CONTAINER ─── -->
+<div id="toast-container"></div>
+
+<!-- ─── QUOTE HIGHLIGHT BAR ─── -->
+<div id="quote-highlight-bar" class="quote-highlight-bar"></div>
+
+<!-- ─── BACK TO TOP ─── -->
+<button id="back-to-top" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- ═══════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════════ -->
+<nav class="navbar-custom" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between gap-3">
+      <!-- Brand -->
+      <a href="index.html" class="nav-brand"><span>./kartik</span></a>
+
+      <!-- Links (desktop) -->
+      <div class="d-none d-md-flex align-items-center gap-1">
+        <a href="index.html" class="nav-link-custom">Home</a>
+        <a href="blog-post.html" class="nav-link-custom">Blog</a>
+        <a href="about.html" class="nav-link-custom">About</a>
+        <a href="contact.html" class="nav-link-custom">Contact</a>
+      </div>
+
+      <!-- Right side -->
+      <div class="d-flex align-items-center gap-2">
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+          <span class="theme-label d-none d-sm-inline">Dark</span>
+        </button>
+        <!-- Mobile menu button -->
+        <button class="d-md-none theme-toggle" data-bs-toggle="collapse" data-bs-target="#mobileNav" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile nav -->
+    <div class="collapse" id="mobileNav">
+      <div class="d-flex flex-column gap-1 pt-3 pb-2">
+        <a href="index.html" class="nav-link-custom">Home</a>
+        <a href="blog-post.html" class="nav-link-custom">Blog</a>
+        <a href="about.html" class="nav-link-custom">About</a>
+        <a href="contact.html" class="nav-link-custom">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     HERO SECTION
+════════════════════════════════════════════ -->
+<section class="hero-section" id="home">
+  <canvas id="hero-canvas"></canvas>
+
+  <div class="container hero-content">
+    <div class="row align-items-center min-vh-100">
+      <div class="col-lg-7">
+
+        <div class="hero-tag">
+          <span class="hero-tag-dot"></span>
+          Available for Projects
+        </div>
+
+        <h1 class="hero-title">
+          Hi, I'm <span class="highlight">Kartik</span><br>
+          <span class="typewriter-wrapper">
+            <span id="typewriter-text">Full-Stack Developer</span>
+          </span>
+        </h1>
+
+        <p class="hero-subtitle">
+          3rd-year CSE student at SGGS Nanded. I write about Android development,
+          MERN stack, AI/ML experiments, and my hackathon journeys with
+          team <strong>LazyCoder's</strong>.
+        </p>
+
+        <div class="hero-cta">
+          <a href="blog-post.html" class="btn-primary-custom">
+            <i class="fa-solid fa-newspaper"></i> Read My Blog
+          </a>
+          <a href="about.html" class="btn-secondary-custom">
+            <i class="fa-solid fa-user"></i> About Me
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="scroll-indicator">
+    <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+    <span class="scroll-text">Scroll</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     STATS
+════════════════════════════════════════════ -->
+<!-- <section class="stats-section">
+  <div class="container">
+    <div class="row stagger-children">
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-number" data-count="" data-suffix="+">0</div>
+          <div class="stat-label">Articles Written</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-number" data-count="" data-suffix="+">0</div>
+          <div class="stat-label">Monthly Readers</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-number" data-count="" data-suffix="">0</div>
+          <div class="stat-label">Hackathons</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-number" data-count="" data-suffix="yr">0</div>
+          <div class="stat-label">Experience</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- ═══════════════════════════════════════════
+     FEATURED POSTS
+════════════════════════════════════════════ -->
+<!-- <section class="section-padding selectable-content" id="blog">
+  <div class="container"> -->
+    <!-- Header -->
+    <!-- <div class="row mb-5">
+      <div class="col-lg-6 animate-on-scroll">
+        <div class="section-tag">Latest Articles</div>
+        <h2 class="section-title">Fresh from the<br><span style="background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Keyboard</span></h2>
+      </div>
+      <div class="col-lg-6 d-flex align-items-end animate-on-scroll">
+        <p class="section-subtitle">Deep dives into Android, MERN stack, ML experiments, and real hackathon stories from team LazyCoder's.</p>
+      </div>
+    </div> -->
+
+    <!-- Cards grid -->
+    <!-- <div class="row g-4 stagger-children"> -->
+
+      <!-- Featured large card -->
+      <!-- <div class="col-lg-8">
+        <div class="blog-card h-100">
+          <div class="card-image-wrap" style="min-height:220px;">
+            <div class="card-image-placeholder">🤖</div>
+          </div>
+          <div class="card-content">
+            <div class="card-tags">
+              <span class="card-tag">Android</span>
+              <span class="card-tag" style="background:rgba(8,145,178,0.1);color:var(--accent-cyan);border-color:rgba(8,145,178,0.2);">Kotlin</span>
+              <span class="card-tag" style="background:rgba(219,39,119,0.1);color:var(--accent-pink);border-color:rgba(219,39,119,0.2);">Featured</span>
+            </div>
+            <h3 class="card-title">Building a Real-Time Maternal Health App: Our HackSpectra Story</h3>
+            <p class="card-excerpt">At HackSpectra in MGM Nanded, our team LazyCoder's tackled maternal health monitoring — combining Kotlin, Firebase, and on-device ML to build something truly impactful in 36 hours. Here's every decision we made and why.</p>
+            <div class="card-meta">
+              <div class="card-author">
+                <div class="author-avatar">KY</div>
+                <div>
+                  <div class="author-name">Kartik Yadav Gurve</div>
+                  <div class="author-date">May 18, 2025</div>
+                </div>
+              </div>
+              <div class="card-read-time"><i class="fa-regular fa-clock"></i> 12 min</div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Side column -->
+      <!-- <div class="col-lg-4 d-flex flex-column gap-4">
+        <div class="blog-card">
+          <div class="card-content">
+            <div class="card-tags"><span class="card-tag">MERN</span></div>
+            <h3 class="card-title">Docker + MongoDB: My Production Setup for MERN Apps</h3>
+            <p class="card-excerpt">A step-by-step walkthrough of containerizing a MERN application with Docker Compose and MongoDB Atlas.</p>
+            <div class="card-meta">
+              <div class="card-author">
+                <div class="author-avatar">KY</div>
+                <div>
+                  <div class="author-name">Kartik Yadav Gurve</div>
+                  <div class="author-date">May 12, 2025</div>
+                </div>
+              </div>
+              <div class="card-read-time"><i class="fa-regular fa-clock"></i> 8 min</div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="blog-card">
+          <div class="card-content">
+            <div class="card-tags"><span class="card-tag" style="background:rgba(8,145,178,0.1);color:var(--accent-cyan);border-color:rgba(8,145,178,0.2);">ML</span></div>
+            <h3 class="card-title">Krishk Mitra AI — Building Agritech in 24 Hours (Ecothon)</h3>
+            <p class="card-excerpt">How we built an AI agricultural assistant with crop advisory, weather data, and soil analysis at SIPNA COET's Ecothon.</p>
+            <div class="card-meta">
+              <div class="card-author">
+                <div class="author-avatar">KY</div>
+                <div>
+                  <div class="author-name">Kartik Yadav Gurve</div>
+                  <div class="author-date">Apr 28, 2025</div>
+                </div>
+              </div>
+              <div class="card-read-time"><i class="fa-regular fa-clock"></i> 10 min</div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Row 2 -->
+      <!-- <div class="col-md-4">
+        <div class="blog-card">
+          <div class="card-image-wrap" style="height:160px;"><div class="card-image-placeholder">💧</div></div>
+          <div class="card-content">
+            <div class="card-tags"><span class="card-tag">HackegenX</span></div>
+            <h3 class="card-title">Wastewater Management System — Our First Hackathon</h3>
+            <p class="card-excerpt">Building an IoT-based water quality monitoring system as a team for the very first time.</p>
+            <div class="card-meta">
+              <div class="card-author">
+                <div class="author-avatar">KY</div>
+                <div><div class="author-name">Kartik Yadav Gurve</div><div class="author-date">Mar 5, 2025</div></div>
+              </div>
+              <div class="card-read-time"><i class="fa-regular fa-clock"></i> 7 min</div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="col-md-4">
+        <div class="blog-card">
+          <div class="card-image-wrap" style="height:160px;"><div class="card-image-placeholder">⚡</div></div>
+          <div class="card-content">
+            <div class="card-tags"><span class="card-tag">Power BI</span></div>
+            <h3 class="card-title">Power BI Dashboards That Actually Tell a Story</h3>
+            <p class="card-excerpt">Data visualization best practices I learned while teaching at Sai Ambrosia Education.</p>
+            <div class="card-meta">
+              <div class="card-author">
+                <div class="author-avatar">KY</div>
+                <div><div class="author-name">Kartik Yadav Gurve</div><div class="author-date">Apr 10, 2025</div></div>
+              </div>
+              <div class="card-read-time"><i class="fa-regular fa-clock"></i> 6 min</div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="col-md-4">
+        <div class="blog-card">
+          <div class="card-image-wrap" style="height:160px;"><div class="card-image-placeholder">🗳️</div></div>
+          <div class="card-content">
+            <div class="card-tags"><span class="card-tag">Civic Tech</span></div>
+            <h3 class="card-title">JanConsent — Civic Tech at Hack for Impact (MIT CSN)</h3>
+            <p class="card-excerpt">Building a transparent consent and grievance platform for citizens at MIT College of Science & Nature.</p>
+            <div class="card-meta">
+              <div class="card-author">
+                <div class="author-avatar">KY</div>
+                <div><div class="author-name">Kartik Yadav Gurve</div><div class="author-date">May 2, 2025</div></div>
+              </div>
+              <div class="card-read-time"><i class="fa-regular fa-clock"></i> 9 min</div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+    <!-- </div>  -->
+
+    <div class="text-center mt-5 animate-on-scroll">
+      <a href="blog-post.html" class="btn-secondary-custom">
+        View All Articles <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     NEWSLETTER
+════════════════════════════════════════════ -->
+<section class="newsletter-section">
+  <div class="container">
+    <div class="newsletter-card animate-on-scroll">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="section-tag">Newsletter</div>
+          <h2 class="newsletter-title">Stay in the Loop</h2>
+          <p class="newsletter-subtitle">Get weekly articles on Android dev, MERN tips, ML experiments, and hackathon recaps — straight to your inbox. No spam, ever.</p>
+          <form class="newsletter-form" novalidate>
+            <input type="email" class="newsletter-input" placeholder="your@email.com" required />
+            <button type="submit" class="btn-primary-custom">
+              <i class="fa-solid fa-paper-plane"></i> Subscribe
+            </button>
+          </form>
+          <p style="font-size:0.78rem;color:var(--text-muted);margin-top:12px;">
+            <i class="fa-solid fa-lock" style="font-size:0.7rem;"></i> No spam. Unsubscribe anytime.
+          </p>
+        </div>
+        <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center">
+          <div style="font-size:8rem;line-height:1;user-select:none;opacity:0.7;">✉️</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════════════════ -->
+<!-- <section class="section-padding">
+  <div class="container">
+    <div class="text-center mb-5 animate-on-scroll">
+      <div class="section-tag">Testimonials</div>
+      <h2 class="section-title">What Teammates Say</h2>
+    </div>
+    <div class="row g-4 stagger-children">
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">Kartik's ability to architect complex Android features under hackathon pressure is unreal. JanConsent wouldn't exist without him.</p>
+          <div class="testimonial-author">
+            <div class="test-avatar">AT</div>
+            <div><div class="test-name">Atharva Deotare</div><div class="test-role">Team LazyCoder's</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">He explains Power BI and data concepts in the most accessible way. His teaching style at Sai Ambrosia is genuinely different.</p>
+          <div class="testimonial-author">
+            <div class="test-avatar">AK</div>
+            <div><div class="test-name">Akshay Kamble</div><div class="test-role">Team LazyCoder's</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">Reading Kartik's blog saved me 3 days of debugging. The Docker + MongoDB article is bookmarked permanently.</p>
+          <div class="testimonial-author">
+            <div class="test-avatar">DB</div>
+            <div><div class="test-name">Darshan Bijewar</div><div class="test-role">Team LazyCoder's</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand"><span style="background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">./kartik</span></div>
+        <p class="footer-desc">Developer blog by Kartik Yadav Gurve — Android, MERN, ML, and hackathon journeys.</p>
+        <div class="footer-social">
+          <a href="https://github.com/gurvekartik6" class="social-link"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/kartik-gurve-17290521b/" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+          <!-- <a href="#" class="social-link" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a> -->
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <div class="footer-heading">Pages</div>
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="blog-post.html" class="footer-link">Blog</a>
+        <a href="about.html" class="footer-link">About</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <div class="footer-heading">Topics</div>
+        <a href="#" class="footer-link">Android</a>
+        <a href="#" class="footer-link">MERN Stack</a>
+        <a href="#" class="footer-link">AI / ML</a>
+        <a href="#" class="footer-link">Hackathons</a>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="footer-heading">Quick Subscribe</div>
+        <form class="newsletter-form flex-column gap-2" novalidate style="max-width:100%;">
+          <input type="email" class="newsletter-input" placeholder="your@email.com" required />
+          <button type="submit" class="btn-primary-custom mt-2" style="width:fit-content;">
+            <i class="fa-solid fa-paper-plane"></i> Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 <span>Kartik Yadav Gurve</span>. Built with ❤️.</p>
+      <p class="footer-copy">Made with Three.js · Bootstrap 5 · Vanilla JS</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── SCRIPTS ─── -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/theme-toggle.js"></script>
+<script src="js/three-scene.js"></script>
+<script src="js/newsletter.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
